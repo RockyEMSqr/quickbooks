@@ -226,7 +226,7 @@ Quickbooks.prototype.createBankAccountFromToken = function(customerId, bankAccou
  * @param callback - Callback function which is called with any error or the Bank Account
  */
 Quickbooks.prototype.deleteBankAccount = function(customerId, bankAccountId, callback) {
-  module.request(this, 'delete', {
+  module.request(this, 'del', {
     url: '/payments/customers/' + customerId + '/bank-accounts/' + bankAccountId,
     headers: {
       'Company-Id': this.realmId
@@ -310,7 +310,7 @@ Quickbooks.prototype.createCardFromToken = function(customerId, card, callback) 
  * @param callback - Callback function which is called with any error or the Card
  */
 Quickbooks.prototype.deleteCard = function(customerId, cardId, callback) {
-  module.request(this, 'delete', {
+  module.request(this, 'del', {
     url: '/customers/' + customerId + '/cards/' + cardId,
     headers: {
       'Company-Id': this.realmId

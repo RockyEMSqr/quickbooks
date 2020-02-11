@@ -409,7 +409,7 @@ module.request = function(context, verb, options, entity, callback) {
   if (entity !== null) {
     opts.body = entity
   }
-  if ('production' !== process.env.NODE_ENV && context.debug) {
+  if (context.debug) {
     debug(request)
   }
   request[verb].call(context, opts, function (err, res, body) {

@@ -243,7 +243,7 @@ Quickbooks.prototype.deleteBankAccount = function(customerId, bankAccountId, cal
  */
 Quickbooks.prototype.cards = function(customerId, callback) {
   module.request(this, 'get', {
-    url: '/payments/customers/' + customerId + '/cards',
+    url: '/customers/' + customerId + '/cards',
     headers: {
       'Company-Id': this.realmId
     }
@@ -277,7 +277,7 @@ Quickbooks.prototype.bankAccount = function(customerId, cardId, callback) {
  */
 Quickbooks.prototype.createCard = function(customerId, card, callback) {
   module.request(this, 'post', {
-    url: '/payments/customers/' + customerId + '/cards',
+    url: '/customers/' + customerId + '/cards',
     headers: {
       'Company-Id': this.realmId
     }
@@ -294,7 +294,7 @@ Quickbooks.prototype.createCard = function(customerId, card, callback) {
  */
 Quickbooks.prototype.createCardFromToken = function(customerId, card, callback) {
   module.request(this, 'post', {
-    url: '/payments/customers/' + customerId + '/cards/createFromToken',
+    url: '/customers/' + customerId + '/cards/createFromToken',
     headers: {
       'Company-Id': this.realmId
     }
@@ -311,7 +311,7 @@ Quickbooks.prototype.createCardFromToken = function(customerId, card, callback) 
  */
 Quickbooks.prototype.deleteCard = function(customerId, cardId, callback) {
   module.request(this, 'delete', {
-    url: '/payments/customers/' + customerId + '/cards/' + cardId,
+    url: '/customers/' + customerId + '/cards/' + cardId,
     headers: {
       'Company-Id': this.realmId
     }

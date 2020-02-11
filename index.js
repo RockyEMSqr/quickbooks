@@ -40,13 +40,13 @@ Quickbooks.BASE_URL = 'https://sandbox.api.intuit.com/quickbooks/v4'
  */
 function Quickbooks(consumerKey, consumerSecret, token, tokenSecret, realmId, refreshToken, oauthversion, useSandbox, debug) {
   var prefix = _.isObject(consumerKey) ? 'consumerKey.' : '';
-  this.consumerKey = eval(prefix + 'consumerKey');
-  this.consumerSecret = eval(prefix + 'consumerSecret');
-  this.token = eval(prefix + 'token');
-  this.tokenSecret = eval(prefix + 'tokenSecret');
-  this.realmId = eval(prefix + 'realmId');
-  this.useSandbox = eval(prefix + 'useSandbox');
-  this.debug = eval(prefix + 'debug');
+  this.consumerKey = consumerKey
+  this.consumerSecret = consumerSecret;
+  this.token = token;
+  this.tokenSecret = tokenSecret;
+  this.realmId = realmId;
+  this.useSandbox = useSandbox;
+  this.debug = debug;
   this.endpoint = this.useSandbox ? Quickbooks.BASE_URL : Quickbooks.BASE_URL.replace('sandbox.', '')
   this.oauthversion = oauthversion || '1.0a';
   this.refreshToken = refreshToken || null;
@@ -413,7 +413,7 @@ module.request = function(context, verb, options, entity, callback) {
     debug(request)
   }
   request[verb].call(context, opts, function (err, res, body) {
-    if ('production' !== process.env.NODE_ENV && context.debug) {
+    if (context.debug) {
       console.log('invoking endpoint: ' + url)
       if (entity) console.log(entity)
       console.log(util.inspect(err || body, {showHidden: false, depth: null}));
